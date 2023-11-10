@@ -1,0 +1,8 @@
+The swav paper is an extension of the contrastive learning paradigm. We basically want to find the representations of the images without any info about labels. 
+Hence it is self supervised learning.
+In contrastive learning we take an image and perform its two augmentations. Then we pass those two tranformed images to a non linear transformation.
+The output of these are the features of the same image. We can take dot product and its label will be 1. Hence we can create a loss function and find the parameters of the non linear mapping 
+by backpropagation.
+In swav paper it is same until the creation of non linear transformations. We initializa K random vectors (prototypes). We find the code by doing cosine similarity. 
+We get the labels as qt and qs. We calculate the probability of the tranformed feature belongingn to any one of K classes by dong the softmax. 
+Now we swap the labels and find the cross entropy loss.
