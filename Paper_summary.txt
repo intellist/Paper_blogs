@@ -6,3 +6,5 @@ by backpropagation.
 In swav paper it is same until the creation of non linear transformations. We initializa K random vectors (prototypes). We find the code by doing cosine similarity. 
 We get the labels as qt and qs. We calculate the probability of the tranformed feature belongingn to any one of K classes by dong the softmax. 
 Now we swap the labels and find the cross entropy loss.
+
+SimCLR paper first introduced the loss where the log p is calculate as softmax over the zi and zj which are the representations of the same image.
