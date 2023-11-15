@@ -1,10 +1,17 @@
+2 types of self-supervised learning paradigms:
+1) Clustering based approaches: We pass the images through a network like ResNet 50 and get output of some intermediate layer. This output will act as feature of an image. Apply some form of clustering on top of these features to generate cluster labels for each image. Now we use these cluster labels to train the model in a supervised manner.
+2) Contrastive learning (Noise contrastive estimation based approaches): Semantically similar images are similar. We do transformation of an image and then try to minimize the diagreement between this transformed image and the original image.
 The swav paper is an extension of the contrastive learning paradigm. We basically want to find the representations of the images without any info about labels. 
 Hence it is self supervised learning.
 In contrastive learning we take an image and perform its two augmentations. Then we pass those two tranformed images to a non linear transformation.
-The output of these are the features of the same image. We can take dot product and its label will be 1. Hence we can create a loss function and find the parameters of the non linear mapping 
-by backpropagation.
+The output of these are the features of the same image. We can take dot product and its label will be 1. Hence we can create a loss function and find the parameters of the non linear mapping by backpropagation.
 In swav paper it is same until the creation of non linear transformations. We initializa K random vectors (prototypes). We find the code by doing cosine similarity. 
-We get the labels as qt and qs. We calculate the probability of the tranformed feature belongingn to any one of K classes by dong the softmax. 
+We get the labels as qt and qs. We calculate the probability of the tranformed feature belonging to any one of K classes by doing the softmax. 
 Now we swap the labels and find the cross entropy loss.
 
-SimCLR paper first introduced the loss where the log p is calculate as softmax over the zi and zj which are the representations of the same image.
+- SimCLR paper first introduced the loss where the log p is calculate as softmax over the zi and zj which are the representations of the same image.
+- Instance-level discrimination algorithm: (Unsupervised Feature Learning via Non-Parametric Instance Discrimination 2018 paper) first created augmentations of an image and used contrastive loss to get the representations of the image. 
+- Multi-crop augmentation is the 2nd novelty of the swaV paper: Here it randomly crops an image to get a high resolution image (224X224) and low resolution images (96X96). This causes the model to become scale invariant.
+- Augmentation policies: Color discoloration, random flipping, gray scaling, Gaussian blurring
+
+  
