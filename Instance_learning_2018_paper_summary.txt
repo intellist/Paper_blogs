@@ -1,1 +1,13 @@
 Paper: Unsupervised Feature Learning via Non-Parametric Instance Discrimination
+
+Object recognition and oject detection. Object detection involves recognition also ?
+
+Semantic similarity like between leopard and a jaguar can be learned by just the visual data and the annotations are not important.
+The paper takes the classwise supervision to the extreme of instance-wise supervision. We want to have amteric that captures the similarity among instances. In instance level discriminative learning the number of classes we will have is the same size as the dataset (in millions).
+To tackle such large number of classes the paper uses NCE (Noise Contrastive Estimation) instead of softmax. And also using proximal regularization method to stabilize the learning process.
+
+Previous unsupervised methods:
+1) Generative models: classical generative models inlcude Restricted Boltzman Machines and Autoencoders. Recent methods: GANs and VAEs.
+2) Self-supervised approaches: here the models predicts an ommited aspect of an instance given the rest. Some tasks: predicting the rgb image from the grayscale image, filling in missing parts of an image, counting the objects, solving a jigsaw puzzle.
+
+In their approach to find the embedding function they treat each image as a separate class and learna classifier for N (number of image instances) classes.
