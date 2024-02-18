@@ -1,1 +1,3 @@
-
+Different tokenizer libraries:
+- SentencePiece by Google
+- tiktoken by OpenAI
